@@ -24,23 +24,13 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
-    @RequestMapping("/hello")
-    public String hello() {
-        return "{hello: World}";
-    }
-
-    @RequestMapping("/helloBook")
-    public Book helloBook() {
-        return new Book(1L,"9788324631766","Thinking in Java", 1,"Helion","programming");
-    }
-    
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/")
     public List<Book> showAll(Model model,HttpServletRequest request) {
         return bookService.getList();
     }
     
-    // TODO response status created
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/")
     public void add(@RequestBody Book book) {
         bookService.add(book);

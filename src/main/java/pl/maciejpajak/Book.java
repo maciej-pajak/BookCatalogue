@@ -1,30 +1,11 @@
 package pl.maciejpajak;
 
 public class Book {
-    
-    public enum Columns {
-        ID("id"), 
-        ISBN("isbn"), 
-        TITLE("title"), 
-        AUTHOR("author_id"), 
-        PUBLISHER("publisher"), 
-        TYPE("type");
-        
-        private String name;
-        
-        private Columns(String name) {
-            this.name = name;
-        }
-        
-        public String getName() {
-            return name;
-        }
-    }
-    
+
     private long id;
     private String isbn;
     private String title;
-    private long authorId;
+    private String author;
     private String publisher;
     private String type;
     
@@ -32,12 +13,11 @@ public class Book {
         
     }
     
-    public Book(long id, String isbn, String title, long authorId, String publisher, String type) {
+    public Book(String isbn, String title, String author, String publisher, String type) {
         super();
-        this.id = id;
         this.isbn = isbn;
         this.title = title;
-        this.authorId = authorId;
+        this.author = author;
         this.publisher = publisher;
         this.type = type;
     }
@@ -66,12 +46,12 @@ public class Book {
         this.title = title;
     }
 
-    public long getAuthor() {
-        return authorId;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setAuthor(long authorId) {
-        this.authorId = authorId;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getPublisher() {
